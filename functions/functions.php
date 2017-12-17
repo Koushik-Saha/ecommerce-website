@@ -60,7 +60,7 @@ function getPro(){
 
 	global $con;
 
-	$get_pro = "select * from products order by RAND() LIMIT 0,6";
+	$get_pro = "select * from products order by RAND() LIMIT 0,10";
 
 	$run_pro = mysqli_query($con, $get_pro);
 
