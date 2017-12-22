@@ -135,6 +135,9 @@ include("includes/db.php");
 		if ($insert_pro) {
 			echo "<script>alert('Product Has Been Inserted!')</script>";
 			echo "<script>window.open('insert_product.php','_self')</script>";
+		}else{
+			echo "<script>alert('Product Has Not Been Inserted!')</script>";
+			echo "<script>window.open('insert_product.php','_self')</script>";
 		}
 
 

@@ -94,11 +94,7 @@ include("functions/functions.php");
 
 						$search_query = $_GET['user_query'];
 
-<<<<<<< HEAD
-					$get_pro = "select * from products where product_keywords like '%$search_query%'    ";
-=======
-					$get_pro = "select * from products where product_keywords like '%$search_query%' ";
->>>>>>> 1efed486669ad21ab73098301045403f566dd7b2
+					$get_pro = "select * from products where product_keywords like '%$search_query%'";
 
 					$run_pro = mysqli_query($con, $get_pro);
 

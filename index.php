@@ -79,6 +79,8 @@ include("functions/functions.php");
 
 
 			<div id = "content_area">
+				
+				<?php cart(); ?>
 
 				<div id="shopping_cart">
 
@@ -87,7 +89,7 @@ include("functions/functions.php");
 					</span>
 					
 				</div>
-				
+
 				<div id="products_box">
 					
 					<?php getPro(); ?>

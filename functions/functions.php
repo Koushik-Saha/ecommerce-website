@@ -7,6 +7,48 @@ if (mysqli_connect_errno()){
 }
 
 
+function getIp() {
+    $ip = $_SERVER['REMOTE_ADDR'];
+ 
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+ 
+    return $ip;
+}
+
+
+
+function cart(){
+	if (isset($_GET['add_cart'])){
+
+		global $con;
+
+		$ip = getIp();
+
+		$pro_id = $_GET['add_cart'];
+
+		$check_pro = "select * from cart where ip_add= '$ip' AND p_id='$pro_id'";
+
+		$run_check = mysqli_query($con, $check_pro);
+
+		if(mysqli_num_rows($run_check)>0){
+			echo " ";
+		}else{
+			$insert_pro = "insert  into cart(p_id,ip_add) value('$pro_id','$ip')";
+
+			$run_pro = mysqli_query($con, $insert_pro);
+
+			echo "<script>window.open('index.php', '_self')</script>";
+		}
+
+
+	}
+}
+
+
 
 function getCats(){
 
@@ -89,11 +131,11 @@ function getPro(){
 
 				<img src='admin_area/product_images/$pro_image' width='180' height='180'/>
 
-				<p><b> ৳ $pro_price </b></p>
+				<p><b> Price: ৳ $pro_price </b></p>
 
 				<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
 
-				<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
+				<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
 
 			</div>
 
