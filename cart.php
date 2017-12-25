@@ -164,8 +164,6 @@ include("functions/functions.php");
 								?>
 
 
-
-
 								<td><?php echo "৳" . $single_price; ?></td>
 							</tr>
 
