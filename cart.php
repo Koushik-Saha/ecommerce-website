@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <?php
 
+session_start();
 include("functions/functions.php");
 
 ?>
@@ -144,7 +145,27 @@ include("functions/functions.php");
 								<td><?php echo $product_title; ?> <br>
 									<img src="admin_area/product_images/<?php echo $product_image; ?>" width = "60" height = "60" />
 								</td>
-								<td><input type="text" size="6" name="qty"></td>
+								<td><input type="text" size="4" name="qty" value="<?php $_SESSION['qty'];?>" /></td>
+
+								<?php
+									if(isset($_POST['update_cart'])){
+
+										$qty = $_POST['qty'];
+
+										$update_qty = "update cart set qty='$qty' ";
+
+										$run_qty = mysqli_query($con, $update_qty);
+
+										$_SESSION['qty']=$qty;
+
+										$total = $total*$qty;
+									}
+
+								?>
+
+
+
+
 								<td><?php echo "৳" . $single_price; ?></td>
 							</tr>
 
@@ -167,6 +188,10 @@ include("functions/functions.php");
 					</form>
 
 					<?php
+
+					// function updatecart(){
+
+						global $con;
 
 						$ip = getIp();
 
@@ -191,6 +216,10 @@ include("functions/functions.php");
 							echo "<script>window.open('index.php', '_self')</script";
 
 						}
+
+						// echo @$up_cart = updatecart();
+
+					// }
 					?>
 				</div>
 
