@@ -1,6 +1,8 @@
 <!DOCTYPE>
 <?php
 
+session_start();
+
 include("functions/functions.php");
 include("includes/db.php");
 
@@ -200,11 +202,28 @@ include("includes/db.php");
 
 		$run_c = mysqli_query($con, $insert_c);
 
-		if($run_c){
+		$sel_cart = "select * from cart where ip_add='$ip'";
 
-			echo "<script>alert('registration successful!')</script";
+		$run_cart = mysqli_query($con,$sel_cart);
+
+		$check_cart = mysqli_num_rows($run_cart);
+
+		if($check_cart==0){
+
+			$_SESSION['customer_email']=$c_email;
+
+			echo "<script>alert('Account has been Create successfully')</script";
+
+			echo "<script>window.open('customer/my_account.php','_self')</script";
+		}else{
+			
+			$_SESSION['customer_email']=$c_email;
+
+			echo "<script>alert('Account has been Create successfully')</script";
+
+			echo "<script>window.open('checkout.php','_self')</script";
+
 		}
-
 	}
 
 ?>
