@@ -2,6 +2,7 @@
 <?php
 
 include("functions/functions.php");
+include("includes/db.php");
 
 ?>
 <html>
@@ -99,12 +100,12 @@ include("functions/functions.php");
 
 						<tr>
 							<td align="right">Customer Name:</td>
-							<td><input type="text" name="c_name" /></td>
+							<td><input type="text" name="c_name" required /></td>
 						</tr>
 
 						<tr>
 							<td align="right">Customer Email:</td>
-							<td><input type="text" name="c_email" /></td>
+							<td><input type="text" name="c_email" required /></td>
 						</tr>
 
 						<tr>
@@ -114,7 +115,7 @@ include("functions/functions.php");
 
 						<tr>
 							<td align="right">Customer Image:</td>
-							<td><input type="file" name="c_image" /></td>
+							<td><input type="file" name="c_image" required /></td>
 						</tr>
 
 
@@ -138,12 +139,12 @@ include("functions/functions.php");
 
 						<tr>
 							<td align="center">Customer City</td>
-							<td><input type="text" name="c_city" /></td>
+							<td><input type="text" name="c_city" required /></td>
 						</tr>
 
 						<tr>
 							<td align="center">Customer Contact</td>
-							<td><input type="text" name="c_contact" /></td>
+							<td><input type="text" name="c_contact" required /></td>
 						</tr>
 
 						<tr>
@@ -174,3 +175,38 @@ include("functions/functions.php");
 
 </body>
 </html>
+
+<?php
+
+	if (isset($_POST['register'])) {
+		
+		$ip = getIP();
+
+		$c_name = $_POST['c_name'];
+		$c_email = $_POST['c_email'];
+		$c_pass = $_POST['c_pass'];
+		$c_image = $_FILES['c_image']['name'];
+		$c_image_tmp = $_FILES['c_image']['tmp_name'];
+		$c_country = $_POST['c_country'];
+		$c_city = $_POST['c_city'];
+		$c_contact = $_POST['c_contact'];
+		$c_address = $_POST['c_address'];
+		
+
+		move_uploaded_file($c_image_tmp, "customer/customer_images/$c_image");
+
+		$insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image) values ('$ip','$c_name', '$c_email','$c_pass','c_country','$c_city','$c_contact','$c_address','$c_image')";
+
+
+		$run_c = mysqli_query($con, $insert_c);
+
+		if($run_c){
+
+			echo "<script>alert('registration successful!')</script";
+		}
+
+	}
+
+?>
+
+
