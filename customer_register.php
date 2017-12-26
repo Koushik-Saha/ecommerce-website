@@ -212,16 +212,16 @@ include("includes/db.php");
 
 			$_SESSION['customer_email']=$c_email;
 
-			echo "<script>alert('Account has been Create successfully')</script";
+			echo "<script>alert('Account has been Create successfully')</script>";
 
-			echo "<script>window.open('customer/my_account.php','_self')</script";
+			echo "<script>window.open('customer/my_account.php','_self')</script>";
 		}else{
 			
 			$_SESSION['customer_email']=$c_email;
 
-			echo "<script>alert('Account has been Create successfully')</script";
+			echo "<script>alert('Account has been Create successfully')</script>";
 
-			echo "<script>window.open('checkout.php','_self')</script";
+			echo "<script>window.open('checkout.php','_self')</script>";
 
 		}
 	}
