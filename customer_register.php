@@ -202,6 +202,11 @@ include("includes/db.php");
 
 		$run_c = mysqli_query($con, $insert_c);
 
+		// if ($run_c) {
+			
+		// 	echo "<script>alert('registion successfully')</script>";
+		// }
+
 		$sel_cart = "select * from cart where ip_add='$ip'";
 
 		$run_cart = mysqli_query($con,$sel_cart);
@@ -223,8 +228,10 @@ include("includes/db.php");
 
 			echo "<script>window.open('checkout.php','_self')</script>";
 
+		 }
+
 		}
-	}
+	
 
 ?>
 

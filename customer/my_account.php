@@ -53,6 +53,20 @@ include("functions/functions.php");
 
 				<ul id="cats">
 
+					<?php 
+						$user = $_SESSION['customer_email'];
+
+						$get_img = "select * from customers where customer_email='$user'";
+
+						$run_img = mysqli_query($con,$get_img);
+
+						$row_img = mysqli_fetch_array($run_img);
+
+						$c_image = $row_img['customer_image'];
+
+						echo "<p style='text-align:center; '><img src='customer_images/$c_image' width = '150' height='150' />";
+					?>
+
 					<li><a href="my_account.php?my_orders">My Orders</a></li>
 
 					<li><a href="my_account.php?edit_account">Edit Account</a></li>

@@ -154,6 +154,11 @@ body{
 	text-decoration: underline;
 }
 
+#cats img {
+    border-radius: 50%;
+    border: 3px solid white;
+    padding: 4px;
+}
 #products_box{
 	width: 780px;
 	text-align: center;
