@@ -106,7 +106,7 @@ include("functions/functions.php");
 
 							if(!isset($_SESSION['customer_email'])){
 
-								echo "<a href='checkout.php' style='color:orange';>Login</a>";
+								echo "<a href='checkdate(month, day, year)kout.php' style='color:orange';>Login</a>";
 							}else{
 
 								echo "<a href='logout.php' style='color:orange';>Logout</a>";
@@ -117,7 +117,6 @@ include("functions/functions.php");
 				</div>
 
 				<div id="products_box">
-
 
 					<?php 
 				if(!isset($_GET['my_orders'])){
@@ -133,14 +132,22 @@ include("functions/functions.php");
 				}
 				}
 				?>
-				<?php
-
-					if (isset($_GET['edit_account'])) {
-							
-						include("edit_account.php");
-
-					}
+				
+				<?php 
+				if(isset($_GET['edit_account'])){
+				include("edit_account.php");
+				}
+				if(isset($_GET['change_pass'])){
+				include("change_pass.php");
+				}
+				if(isset($_GET['delete_account'])){
+				include("delete_account.php");
+				}
+				
+				
 				?>
+				
+
 				</div>
 
 
