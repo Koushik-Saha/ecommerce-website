@@ -169,6 +169,7 @@ include("functions/functions.php");
 								<td><?php echo $product_title; ?> <br>
 									<img src="admin_area/product_images/<?php echo $product_image; ?>" width = "60" height = "60" />
 								</td>
+								<td><input type="text" size="6" name="qty"></td>
 								<td><input type="text" size="4" name="qty" value="<?php $_SESSION['qty'];?>" /></td>
 
 								<?php
@@ -227,7 +228,7 @@ include("functions/functions.php");
 
 								if($run_delete){
 
-									echo "<script>window.open('cart.php', '_self')</script";
+									echo "<script>window.open('cart.php', '_self')</script>";
 								}
 								
 							}
@@ -235,7 +236,7 @@ include("functions/functions.php");
 
 						if(isset($_POST['continue'])){
 
-							echo "<script>window.open('index.php', '_self')</script";
+							echo "<script>window.open('index.php', '_self')</script>";
 
 						}
 

@@ -4,7 +4,7 @@
 session_start();
 
 include("functions/functions.php");
-include("includes/db.php");
+include("admin_area/includes/db.php");
 
 ?>
 <html>
@@ -179,7 +179,9 @@ include("includes/db.php");
 </html>
 
 <?php
-
+	
+	global $con;
+	
 	if (isset($_POST['register'])) {
 		
 		$ip = getIP();
@@ -197,7 +199,7 @@ include("includes/db.php");
 
 		move_uploaded_file($c_image_tmp, "customer/customer_images/$c_image");
 
-		$insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image) values ('$ip','$c_name', '$c_email','$c_pass','c_country','$c_city','$c_contact','$c_address','$c_image')";
+		$insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_image,customer_address) values ('$ip','$c_name', '$c_email','$c_pass','c_country','$c_city','$c_contact','$c_image','$c_address')";
 
 
 		$run_c = mysqli_query($con, $insert_c);

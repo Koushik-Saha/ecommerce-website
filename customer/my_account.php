@@ -64,6 +64,8 @@ include("functions/functions.php");
 
 						$c_image = $row_img['customer_image'];
 
+						$c_name = $row_img['customer_name'];
+
 						echo "<p style='text-align:center; '><img src='customer_images/$c_image' width = '150' height='150' />";
 					?>
 
@@ -115,6 +117,10 @@ include("functions/functions.php");
 				</div>
 
 				<div id="products_box">
+
+					<h2 style="padding: 20px;">Welcome: <?php  echo $c_name; ?></h2>
+
+					<b>You Can see Your orders progress by clicking this <a href="my_account.php?my_orders">link </a> </b>
 
 				</div>
 
