@@ -180,7 +180,7 @@ include("admin_area/includes/db.php");
 
 <?php
 	
-	global $con;
+	// global $con;
 	
 	if (isset($_POST['register'])) {
 		
@@ -199,7 +199,8 @@ include("admin_area/includes/db.php");
 
 		move_uploaded_file($c_image_tmp, "customer/customer_images/$c_image");
 
-		$insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_image,customer_address) values ('$ip','$c_name', '$c_email','$c_pass','c_country','$c_city','$c_contact','$c_image','$c_address')";
+		$insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_image,customer_address) 
+		values ('$ip','$c_name', '$c_email','$c_pass','c_country','$c_city','$c_contact','$c_image','$c_address')";
 
 
 		$run_c = mysqli_query($con, $insert_c);
