@@ -1,13 +1,3 @@
-<?php 
-session_start(); 
-
-if(!isset($_SESSION['user_email'])){
-	
-	echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
-}
-else {
-
-?>
 
 <!DOCTYPE> 
 
@@ -15,7 +5,7 @@ else {
 	<head>
 		<title>This is Admin Panel</title> 
 		
-	<link rel="stylesheet" href="styles/style.css" media="all" /> 
+	<link rel="stylesheet" href="style.css" media="all" /> 
 	</head>
 
 
@@ -43,60 +33,21 @@ else {
 		</div>
 		
 		<div id="left">
-		<h2 style="color:red; text-align:center;"><?php echo @$_GET['logged_in']; ?></h2>
-		<?php 
+		<?php  
 		if(isset($_GET['insert_product'])){
 		
-		include("insert_product.php"); 
+			include("insert_product.php"); 
 		
 		}
 		if(isset($_GET['view_products'])){
 		
-		include("view_products.php"); 
+			include("view_products.php"); 
 		
 		}
+
 		if(isset($_GET['edit_pro'])){
 		
-		include("edit_pro.php"); 
-		
-		}
-		if(isset($_GET['insert_cat'])){
-		
-		include("insert_cat.php"); 
-		
-		}
-		
-		if(isset($_GET['view_cats'])){
-		
-		include("view_cats.php"); 
-		
-		}
-		
-		if(isset($_GET['edit_cat'])){
-		
-		include("edit_cat.php"); 
-		
-		}
-		
-		if(isset($_GET['insert_brand'])){
-		
-		include("insert_brand.php"); 
-		
-		}
-		
-		if(isset($_GET['view_brands'])){
-		
-		include("view_brands.php"); 
-		
-		}
-		if(isset($_GET['edit_brand'])){
-		
-		include("edit_brand.php"); 
-		
-		}
-		if(isset($_GET['view_customers'])){
-		
-		include("view_customers.php"); 
+			include("edit_pro.php"); 
 		
 		}
 		
@@ -113,5 +64,3 @@ else {
 
 </body>
 </html>
-
-<?php } ?>

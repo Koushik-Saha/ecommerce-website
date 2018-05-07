@@ -49,14 +49,14 @@ height:800px;
 background-image:url(../images/bg-body.gif); 
 float:left;
 }
-/*#right {
+#right {
 width:200px;
 height:800px;
 float:right;
 border-left:5px groove orange;
 background:#187eae;
 }
-*/
+
 #right a {
 text-decoration:none;
 color:white;
