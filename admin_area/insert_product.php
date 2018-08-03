@@ -20,7 +20,7 @@ include("includes/db.php");
 
 	<form action="insert_product.php" method="post" enctype="multipart/form-data"> 
 		
-		<table align="center" width="795" height = "800" border="2" bgcolor="#187eae">
+		<table align="center" width="795" border="2" bgcolor="#187eae">
 			
 			<tr align="center">
 				<td colspan="7"><h2>Insert New Post Here</h2></td>

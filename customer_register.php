@@ -1,5 +1,4 @@
 <!DOCTYPE>
-
 <?php 
 session_start();
 include("functions/functions.php");
@@ -21,9 +20,8 @@ include("includes/db.php");
 		<!--Header starts here-->
 		<div class="header_wrapper">
 		
-			<a href="index.php"><img id="logo" src="images/cow.gif" />
-			<img id="banner" src="images/banner.gif" />
-
+			<a href="index.php"><img id="logo" src="images/logo.gif" /> </a>
+			<img id="banner" src="images/ad_banner.gif" />
 		</div>
 		<!--Header ends here-->
 		
@@ -189,7 +187,6 @@ include("includes/db.php");
 		
 		$ip = getIp();
 		
-		// $c_id = $_POST['c_id'];
 		$c_name = $_POST['c_name'];
 		$c_email = $_POST['c_email'];
 		$c_pass = $_POST['c_pass'];
@@ -203,15 +200,9 @@ include("includes/db.php");
 		
 		move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
 		
-		 $insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_image,customer_address) values ($ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_image','$c_address')";
+		 $insert_c = "insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image) values ('$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image')";
 	
-		$run_c = mysqli_query($con, $insert_c);
-
-		// if ($run_c) {
-		 	
-		// 	echo "<script>alert('Account has been created successfully, Thanks!')</script>";
-		// 	echo "<script>window.open('customer/my_account.php','_self')</script>"; 	
-		//  } 
+		$run_c = mysqli_query($con, $insert_c); 
 		
 		$sel_cart = "select * from cart where ip_add='$ip'";
 		
